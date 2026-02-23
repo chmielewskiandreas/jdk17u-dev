@@ -145,7 +145,7 @@ AbstractInterpreter::MethodKind AbstractInterpreter::method_kind(const methodHan
       case vmIntrinsics::_dexp:              return java_lang_math_exp;
       case vmIntrinsics::_fmaD:              return java_lang_math_fmaD;
       case vmIntrinsics::_fmaF:              return java_lang_math_fmaF;
-      case vmIntrinsics::_Reference_get:     return java_lang_ref_reference_get;
+      case vmIntrinsics::_Reference_get0:    return java_lang_ref_reference_get0;
       case vmIntrinsics::_dsqrt:
         // _dsqrt will be selected for both Math::sqrt and StrictMath::sqrt, but the latter
         // is native. Keep treating it like a native method in the interpreter
@@ -275,6 +275,7 @@ void AbstractInterpreter::print_method_kind(MethodKind kind) {
     case java_util_zip_CRC32_updateByteBuffer : tty->print("java_util_zip_CRC32_updateByteBuffer"); break;
     case java_util_zip_CRC32C_updateBytes     : tty->print("java_util_zip_CRC32C_updateBytes"); break;
     case java_util_zip_CRC32C_updateDirectByteBuffer: tty->print("java_util_zip_CRC32C_updateDirectByteByffer"); break;
+    case java_lang_ref_reference_get0         : tty->print("java_lang_ref_reference_get0"); break;
     default:
       if (kind >= method_handle_invoke_FIRST &&
           kind <= method_handle_invoke_LAST) {
